@@ -10,8 +10,6 @@ public interface StockExchangeRepository extends JpaRepository<StockExchange, Lo
 
     boolean existsByName(String name);
 
-    @Query("select se from StockExchange se")
-    List<StockExchangeInfo> getAll();
-
-    StockExchangeInfo getStockExchangeById(Long id);
+    @Query("select se from StockExchange se order by se.id")
+    List<StockExchange> getAll();
 }

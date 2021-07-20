@@ -22,27 +22,27 @@ public class StockExchangeController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Object> addStockExchange(@Valid @RequestBody AddStockExchangeDTO addStockExchangeDTO){
+    public ResponseEntity<?> addStockExchange(@Valid @RequestBody AddStockExchangeDTO addStockExchangeDTO){
         return stockExchangeService.addStockExchange(addStockExchangeDTO).getResponse();
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<Object> getStockExchangeById(@PathVariable("id") Long id){
+    public ResponseEntity<?> getStockExchangeById(@PathVariable("id") Long id){
         return stockExchangeService.getStockExchangeById(id).getResponse();
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<Object> getAllStockExchanges(){
+    public ResponseEntity<?> getAllStockExchanges(){
         return stockExchangeService.getAllStockExchanges().getResponse();
     }
 
     @PostMapping("/doExist/multiple")
-    public ResponseEntity<Object> doStockExchangeIdsExist(@RequestBody StockExchangeIdsDTO stockExchangeIdsDTO){
+    public ResponseEntity<?> doStockExchangeIdsExist(@RequestBody StockExchangeIdsDTO stockExchangeIdsDTO){
         return stockExchangeService.doExist(stockExchangeIdsDTO).getResponse();
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Object> handleNotValidException(MethodArgumentNotValidException ex) {
+    public ResponseEntity<?> handleNotValidException(MethodArgumentNotValidException ex) {
         return ResponseEntity.badRequest().body(ex.getBindingResult()
                 .getFieldErrors()
                 .stream()

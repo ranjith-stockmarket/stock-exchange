@@ -18,15 +18,4 @@ public class AddStockExchangeDTO {
     @NotNull(message = "Address can't be null")
     private String address;
     private String remarks;
-
-    public StockExchange getStockExchange(){
-        StockExchange stockExchange = new StockExchange();
-
-        stockExchange.setName(name);
-        stockExchange.setBrief(brief);
-        stockExchange.setAddress(address);
-        stockExchange.setRemarks(remarks);
-
-        return stockExchange;
-    }
 }
